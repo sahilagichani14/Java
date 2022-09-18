@@ -1,11 +1,19 @@
 package com.exam.examproject.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="users")
@@ -29,6 +37,12 @@ public class User {
 	private String phone;
 	
 	private boolean enabled = true;
+	
+	private String profile;
+	
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "user")
+	@JsonIgnore
+	private Set<UserRole> userRoles = new HashSet<>();
 
 	public User() {
 		super();
@@ -36,7 +50,7 @@ public class User {
 	}
 
 	public User(Long id, String username, String password, String firstname, String lastname, String email,
-			String phone, boolean enabled) {
+			String phone, boolean enabled, String profile, Set<UserRole> userRoles) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -46,6 +60,24 @@ public class User {
 		this.email = email;
 		this.phone = phone;
 		this.enabled = enabled;
+		this.profile = profile;
+		this.userRoles = userRoles;
+	}
+	
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+
+	public String getProfile() {
+		return profile;
+	}
+
+	public void setProfile(String profile) {
+		this.profile = profile;
 	}
 
 	public Long getId() {
