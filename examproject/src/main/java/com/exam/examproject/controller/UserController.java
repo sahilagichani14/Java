@@ -4,8 +4,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +24,7 @@ import com.exam.examproject.service.UserService;
 
 @RestController
 @RequestMapping("/user")
+@CrossOrigin("*")
 public class UserController {
 	
 	@Autowired
@@ -27,6 +32,8 @@ public class UserController {
 	
 	@PostMapping("/")
 	public User createUser(@RequestBody User user) throws Exception {
+		
+		user.setProfile("default.png");
 		
 		Role role = new Role();
 		role.setId(15L);
@@ -52,5 +59,13 @@ public class UserController {
 	public void deleteUserById(@PathVariable("userId") Long userId) {
 		this.userService.deleteUser(userId);
 	}
+	
+	/*
+	 * @ExceptionHandler(UsernameNotFoundException.class) public ResponseEntity<?>
+	 * exceptionHandler(UsernameNotFoundException ex){ return new
+	 * ResponseEntity<>(HttpStatus.NOT_FOUND); }
+	 */
+	
+	
 
 }
