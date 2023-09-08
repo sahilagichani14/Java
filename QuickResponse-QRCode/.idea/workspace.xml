@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2a04c617-5407-43a5-95b3-243487b2f5cb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../springboot-kafka-realworld/kafka-consumer-db/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../springboot-kafka-realworld/kafka-producer-wikimedia/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examproject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../examproject/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examproject/src/main/java/com/exam/examproject/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../examproject/src/main/java/com/exam/examproject/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examproject/src/main/java/com/exam/examproject/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/../examproject/src/main/java/com/exam/examproject/model/User.java" afterDir="false" />
-    </list>
+    <list default="true" id="2a04c617-5407-43a5-95b3-243487b2f5cb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +22,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "E:/java_projects/FlyBuy",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
