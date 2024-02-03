@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:context = "http://www.springframework.org/schema/context"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+   
+   <context:annotation-config/>
+   <context:component-scan base-package="com.sahil"/>
+   <context:property-placeholder location="classpath:prop.properties"/>
+
+	<bean id="engine" class="com.sahil.Engine"></bean>
+	
+	<bean id="bike" class="com.sahil.Bike">
+		<constructor-arg name="eng" index="0" ref="engine"></constructor-arg>
+		<constructor-arg name="colour" index="1" value="${bike.colour}"></constructor-arg>
+		<!-- <property name="colour" value="red prop"></property> -->
+	</bean>
+	
+	<bean id="car" class="com.sahil.Car">
+		<constructor-arg name="eng" ref="engine"></constructor-arg>
+	</bean>
+	
+	<!-- 
+	<bean id="bike" class="com.sahil.Bike">
+		<constructor-arg name="colour">
+			<bean class=""></bean>
+		</constructor-arg>
+		<property name="colour" value="red prop"></property>
+	</bean>
+	
+	<bean id="car" class="com.sahil.Car" autowire="byName or byType or no or constructor"/>
+	-->
+   
+</beans>
