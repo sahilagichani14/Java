@@ -21,7 +21,6 @@
 <plugin>
     <groupId>com.google.cloud.tools</groupId>
     <artifactId>jib-maven-plugin</artifactId>
-    <version>3.3.2</version>
 	<configuration>
 	    <to>
 		    <name>docker.io/sahilagichani14/dockerforjava:jib</name>
