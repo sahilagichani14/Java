@@ -1,0 +1,18 @@
+Host Volume: shared host file system folder
+             -v /host-folder-full-path:/container-folder-name
+
+Anonymous Volume: shared docker managed repository
+                  -v /container-folder-name
+
+Named Volume: shared docker managed repository with name
+              -v name-of-the-volume:/container-folder-name
+
+# docker run -itd --name host-vol-app -v ${PWD}/src/main/java/codeinsidedocker:/container-folder-name alpine
+# docker exec -it host-vol-app sh
+# cat /container-folder-name
+
+# docker run -itd --name host-vol-app -v bob:/container-folder-name alpine
+# docker volume ls
+# docker volume rm bob
+# check in docker desktop in volumes, data
+
