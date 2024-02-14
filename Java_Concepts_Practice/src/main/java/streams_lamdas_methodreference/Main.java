@@ -8,7 +8,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -69,6 +71,25 @@ public class Main {
         String subject = "CS";
         int maxGrade = find_max_grade(students, subject);
         System.out.println(maxGrade);
+
+        //method reference
+        students.forEach(System.out::println);
+        students.stream().forEach(System.out::println);
+        students.parallelStream().forEach(System.out::println); //parallel stream
+        boolean anyMatch = students.stream().anyMatch(item -> item.getFirstname().startsWith("S") || item.getSubject().contains("CS"));
+
+
+        //Function is built in functional interface that takes a parameter and returns a parameter
+        Function<Integer, Integer> func_as_var = (n) -> {
+            return n*n;
+        };
+        func_as_var.apply(10);
+
+        //Supplier is built in functional interface that takes no parameter but returns a parameter
+        Supplier<Double> random_num_under_100 = () -> {
+            return Math.random() * 100;
+        };
+        System.out.println(random_num_under_100.get());
 
     }
 

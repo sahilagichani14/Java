@@ -7,7 +7,7 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @ComponentScan(basePackages = "com.sahil")
-@PropertySource("classpath:prop.properties")
+//@PropertySource("classpath:prop.properties")
 public class ConfigClass {
 	
 //	@Bean
