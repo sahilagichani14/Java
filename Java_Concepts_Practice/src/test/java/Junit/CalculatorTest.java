@@ -2,14 +2,13 @@ package Junit;
 
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.Arguments;
-import org.junit.jupiter.params.provider.MethodSource;
-import org.junit.jupiter.params.provider.ValueSource;
+import org.junit.jupiter.params.provider.*;
 
 import java.time.Duration;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,6 +16,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @DisplayName("Description: testing calculator functions")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@Timeout(value = 500, unit = TimeUnit.MILLISECONDS) //for all tests it puts timeout
 public class CalculatorTest {
 
     Calculator calculator = new Calculator();
@@ -32,11 +32,13 @@ public class CalculatorTest {
         System.out.println("Close Connection after each test");
     }
 
+    //https://www.baeldung.com/parameterized-tests-junit-5
     @ParameterizedTest
-    @MethodSource("getTwoVal")
+    //@MethodSource("getTwoVal")
+    @CsvFileSource(resources = "/test.csv", numLinesToSkip = 0, delimiter = ',')
     @DisplayName("Description: testing calculator sum")
     public void testSum(int a, int b){
-        int expected = 13;
+        int expected = 300;
         int actual = calculator.sum(a,b);
         assertEquals(expected, actual);
     }
@@ -63,6 +65,7 @@ public class CalculatorTest {
 
     @Test
     public void testIncrementArray(){
+        Calculator calculator = new Calculator();
         int[] expected = new int[]{2,3,4};
         //int[] expected1 = {1,2,3};
         int[] actual = calculator.incrementArray(new int[]{1, 2, 3});
@@ -71,6 +74,7 @@ public class CalculatorTest {
     }
 
     @Test
+    //@Timeout(value = 500, unit = TimeUnit.MILLISECONDS)
     public void testDivideByZero(){
         //it will fail if we don't throw IllegalArgumentException, as normally it throws ArithmeticException
         assertThrows(IllegalArgumentException.class, ()->calculator.divide(1,0));
