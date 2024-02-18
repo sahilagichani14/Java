@@ -140,6 +140,31 @@ public class Main {
             return "Exception occured"+ exception.getMessage();
         });
         System.out.println("Result " + completableFuture_8.get());
+
+
+        /* PARALLEL STREAMS VS COMPLETABLE FUTURE :
+        * Use CompletableFuture when I/O operations involved, as CompletableFuture gives more flexibility & ability to match
+        * the number of threads to the wait/computer. i.e. We can pass our own custom executor in CompletableFuture
+        *
+        * Use parallel streams when doing computation-heavy tasks with NO I/O operations,
+        * bcz if all threads are compute-bound, then no point in having more threads than processor cores.
+        * */
+        long start=0, end=0;
+        start = System.currentTimeMillis();
+        CompletableFutureVsParallelStreams.findPriceUsingParallelStream(CompletableFutureVsParallelStreams.getShops());
+        end = System.currentTimeMillis();
+        System.out.println("Parallel Stream: " + (end-start));
+
+        start = System.currentTimeMillis();
+        CompletableFutureVsParallelStreams.findPriceUsingCompletableFuture(CompletableFutureVsParallelStreams.getShops());
+        end = System.currentTimeMillis();
+        System.out.println("CompletableFuture: " + (end-start));
+
+        start = System.currentTimeMillis();
+        CompletableFutureVsParallelStreams.findPriceUsingCompletableFutureWithCustomExecutors(CompletableFutureVsParallelStreams.getShops());
+        end = System.currentTimeMillis();
+        System.out.println("CompletableFutureWithCustomExecutors : " + (end-start));
+
     }
 
     public static CompletableFuture<String> getBankAccount(String accId) {
