@@ -39,5 +39,32 @@ public class Main {
         //System.out.println(empDTORecord);
         System.out.println(employee2);
 
+        // record inside record
+        UserRecordInsideRecord userRecordInsideRecord = buildUserRecordInsideRecord();
+
+
+    }
+
+    public static UserRecordInsideRecord buildUserRecordInsideRecord() {
+        UserRecordInsideRecord.Address address = new UserRecordInsideRecord.Address(
+                "Rua http 200",
+                "apto POST",
+                "São Paulo",
+                "00200-404",
+                new UserRecordInsideRecord.Address.Geo("-257422", "25566987"));
+
+        UserRecordInsideRecord.Company company = new UserRecordInsideRecord.Company(
+                "My Great Company",
+                "We develop software!",
+                "sofware, development, java");
+
+        return new UserRecordInsideRecord(null,
+                "Archimedes Fagundes Junior",
+                "archimedes.junior",
+                "archimedes.junior@dev.com",
+                address,
+                "11 95523-9999",
+                "https://my.company.com",
+                company);
     }
 }
