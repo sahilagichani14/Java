@@ -9,3 +9,5 @@ CallingRestApis/*
 CallingRestApis/
 sootUp/*
 sootUp/
+tests-with-spring
+tests-with-spring/*
