@@ -5,12 +5,8 @@ flames-app/
 examproject/
 Java_Concepts_Practice/target
 */target/**
-CallingRestApis/*
 CallingRestApis/
-sootUp/*
 sootUp/
-tests-with-spring
-tests-with-spring/*
-feature-togglz/*
+tests-with-spring/
 feature-togglz/
 gradle-demo/
