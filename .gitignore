@@ -13,3 +13,4 @@ tests-with-spring
 tests-with-spring/*
 feature-togglz/*
 feature-togglz/
+gradle-demo/
