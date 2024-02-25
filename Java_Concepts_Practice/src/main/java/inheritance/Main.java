@@ -6,6 +6,11 @@ class A{
 
     // can write static public as well
     static public void main(String[] args){
+
+        String abc = "Hello WORLD";
+        abc.toLowerCase().toUpperCase();
+        System.out.println(abc);
+
         System.out.println("Run");
 
         A a = new A();
