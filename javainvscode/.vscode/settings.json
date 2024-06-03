@@ -1,0 +1,10 @@
+{
+       "debug.javascript.defaultRuntimeExecutable": {
+              "pwa-node": "node"
+       },
+       "java.jdt.ls.vmargs": "-Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m",
+       "args":["0", "hello"],
+       "env":{
+              "jira-access-token":"kjbsjahajfhjhfjh"
+       }
+}
